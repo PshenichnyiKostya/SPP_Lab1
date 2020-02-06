@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab1</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<%
+for(var i = 0; i < tasks.length;i++) { %>
+    <li><%= tasks[i].name %></li>
+    <li><%= tasks[i].endDate %></li>
+    <li><%= tasks[i].status %></li>
+    <br>
+<% } %>
+
+<form action="/tasks" method="post">
+    <table>
+        <tr>
+            <p>
+            <td>Status task</td>
+        <tr>
+            <td>Task name</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+            </p>
+            <!--            <td><input type="text" name="status"></td>-->
+            <p><select size="1" multiple name="status">
+                    <option selected value="in progress!!!">in progress!!!</option>
+                    <option value="done">done</option>
+                    <option value="canceled">canceled</option>
+                </select>
+            </p>
+        </tr>
+        <tr>
+            <td>End data task</td>
+            <td><input type="date" name="data"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Save"></td>
+        </tr>
+    </table>
+</form>
+
+
+<form action="/tasks" method="get">
+    <p>
+        <select size="1" multiple name="status">
+            <option disabled>Выберите героя</option>
+            <option selected value="in progress!!!">in progress!!!</option>
+            <option value="done">done</option>
+            <option value="canceled">canceled</option>
+        </select>
+    </p>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+</body>
+</html>
